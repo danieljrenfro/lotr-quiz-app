@@ -181,6 +181,8 @@ function handleSubmitAnswer() {
       store.currentPage = 'answer';
       store.currentAnswer = $(`input[name='answers']:checked`).val();
       render();
+    } else {
+      alert ('Please select an answer.')
     }
   });
 }
@@ -189,7 +191,7 @@ function handleSubmitAnswer() {
 function questionPage() {
 
   return `<section>
-  <h2 class='.score'>Your Score: ${store.score} / ${store.questionNumber - store.score}</h2>
+  <h2 class='.score'>Your Score: ${store.score} / ${store.questions.length}</h2>
   <p class='.question-number'>Question Number: ${store.questionNumber + 1} of ${store.questions.length}</p>
   <h3 class='.question'>${store.questions[store.questionNumber].question}</h3>
   <form action="">
